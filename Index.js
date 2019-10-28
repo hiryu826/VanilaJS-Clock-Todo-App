@@ -1,3 +1,4 @@
+// 20191028
 console.log('My name is Ryu Se Hyun, I can do it');
 
 const Num = 100 * 100;
