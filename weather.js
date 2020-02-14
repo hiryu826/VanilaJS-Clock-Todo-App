@@ -1,3 +1,5 @@
+const weather = document.querySelector(".js-weather")
+
 //API는 특정 웹사이트로부터 데이터를 얻거나, 컴퓨터(Machines) 끼리 소통하기 위해 고안 되었다.
 //날씨 API: https://home.openweathermap.org/
 const API_KEY = "6ceae469da795d09a2a32097553e3610"
@@ -5,7 +7,16 @@ const COORDS = 'coords';
 
 function getWeather(lat, lon){
   //데이터를 얻기 위해선 fetch를 사용한다. (fetch() 안에는 가져올 데이터가 들어가면 된다.))
-  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
+  //then: 역할은 함수 호출, 데이터가 완전히 들어온 다음 함수를 호출한다.
+  //fetch 밖에 선언할 시 fetch가 끝나기 전에 동작하므로, fetch가 정상적으로 종료되지 않을 수 있다.
+  //서버로부터 데이터가 들어올때까지 기다려야한다.
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`).then(function(response){
+    return response.json();
+    }).then(function(json){
+      const temperature = json.main.temp;
+      const place = json.name;
+      weather.innerText = `${temperature}c @ ${place}`;
+  });
 }
 
 function saveCoords(coordsObj){
