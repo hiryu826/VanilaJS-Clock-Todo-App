@@ -1,21 +1,23 @@
-const title = document.querySelector("#title");
+console.log("I'm work")
 
-const CLICKED_CLASS = "clicked"
+// const title = document.querySelector("#title");
 
-function handleClick(){
-    const currentClass = title.className;
-    if(currentClass !== CLICKED_CLASS){
-        title.className = CLICKED_CLASS;
-    } else {
-        title.className = "";
-    }
-}
+// const CLICKED_CLASS = "clicked"
 
-function init(){
-    title.addEventListener("mouseenter", handleClick);
-}
+// function handleClick(){
+//     const currentClass = title.className;
+//     if(currentClass !== CLICKED_CLASS){
+//         title.className = CLICKED_CLASS;
+//     } else {
+//         title.className = "";
+//     }
+// }
 
-init();
+// function init(){
+//     title.addEventListener("mouseenter", handleClick);
+// }
+
+// init();
 
 // 20191028
 // console.log('My name is Ryu Se Hyun, I can do it');
